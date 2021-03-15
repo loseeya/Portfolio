@@ -6,7 +6,11 @@
   <script src="https://kit.fontawesome.com/91072fbd34.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
-  <script src="./main.js"></script>
+  <script defer src="./main.js"></script>
+  <!-- 만약에 여기에 있다고 하면, 아래 돔요소를 읽기 전(에이치티엠엘)이라서 
+  스크립트 내용중 일부인, 돔요소를 찾는내용이 동작하지 않는거에요. 아직 이 시점에는 그 엘리먼트가 없어서요.
+
+  -->
   <title>Portfolio</title>
 </head>
 <body>
@@ -20,22 +24,22 @@
     </div>
     
     <ul class="navbar__menu">
-      <li class="navbar__menu__item active">
+      <li class="navbar__menu__item active" data-link="#home">
       Home
     </li>
-      <li class="navbar__menu__item">
+      <li class="navbar__menu__item" data-link="#about">
         About
       </li>
-      <li class="navbar__menu__item">
+      <li class="navbar__menu__item" data-link="#skills">
         Skills
       </li>
-      <li class="navbar__menu__item">
+      <li class="navbar__menu__item" data-link="#work">
         My work
       </li>
-      <li class="navbar__menu__item">
-        Testimonial
+      <li class="navbar__menu__item" data-link="#testmonials">
+        Testmonial
       </li>
-      <li class="navbar__menu__item" >
+      <li class="navbar__menu__item" data-link="#contact">
         Contact
       </li>
     </ul>
@@ -47,20 +51,20 @@
     </button>
   </nav>
 
-  <!-- Home & Navbar -->
+  <!-- Home -->
   <section id="home">
-
-    
-    <img src="#" alt="" class="home__avatar">
-    <h1 class="home__title">
+    <div class="home__container">
+      <img src="#" alt="" class="home__avatar">
+      <h1 class="home__title">
       Hello, <br /> I'm Dream Coder
-    </h1>
-    <h2 class="home__dsec">
+      </h1>
+      <h2 class="home__dsec">
       A New front-end developer.
-    </h2>
-    <button class="home__contact">
+      </h2>
+      <button class="home__contact">
       Contact me
-    </button>
+      </button>
+    </div>
   </section>
       
 
@@ -223,25 +227,25 @@
       Projects
     </h3>
     <div class="work__categories">
-      <button class="categori__btn active">
+      <button class="categori__btn active" data-filter="*">
         All
         <span class="category__count">
           8
         </span>
       </button>
-      <button class="categori__btn">
+      <button class="categori__btn" data-filter="front-end">
         front-end
         <span class="category__count">
           3
         </span>
       </button>
-      <button class="categori__btn">
+      <button class="categori__btn" data-filter="Back-end">
         Back-end
         <span class="category__count">
           3
         </span>
       </button>
-      <button class="categori__btn">
+      <button class="categori__btn" data-filter="Mobile">
         Mobile
         <span class="category__count">
           2
@@ -250,7 +254,7 @@
     </div>
 
     <div class="work__projects">
-      <a href="#" class="project" target="blank">
+      <a href="#" class="project" target="blank" data-filter="front-end">
         <img src="./assets/work/Frontend.jpg" alt="front-end" class="project__img" />
         <div class="project__desc">
           <h3>
@@ -262,7 +266,7 @@
         </div>
       </a>
 
-      <a href="#" class="project" target="blank">
+      <a href="#" class="project" target="blank" data-filter="front-end">
         <img src="" alt="" class="project__img">
         <div class="project__desc">
           <h3>
@@ -274,19 +278,7 @@
         </div>
       </a>
 
-      <a href="#" class="project" target="blank">
-        <img src="" alt="" class="project__img">
-        <div class="project__desc">
-          <h3>
-            
-          </h3>
-          <span>
-
-          </span>
-        </div>
-      </a>
-
-      <a href="#" class="project" target="blank">
+      <a href="#" class="project" target="blank" data-filter="front-end">
         <img src="" alt="" class="project__img">
         <div class="project__desc">
           <h3>
@@ -298,7 +290,7 @@
         </div>
       </a>
 
-      <a href="#" class="project" target="blank">
+      <a href="#" class="project" target="blank" data-filter="Back-end">
         <img src="" alt="" class="project__img">
         <div class="project__desc">
           <h3>
@@ -310,7 +302,7 @@
         </div>
       </a>
 
-      <a href="#" class="project" target="blank">
+      <a href="#" class="project" target="blank" data-filter="Back-end">
         <img src="" alt="" class="project__img">
         <div class="project__desc">
           <h3>
@@ -322,7 +314,7 @@
         </div>
       </a>
 
-      <a href="#" class="project" target="blank">
+      <a href="#" class="project" target="blank" data-filter="Back-end">
         <img src="" alt="" class="project__img">
         <div class="project__desc">
           <h3>
@@ -334,7 +326,19 @@
         </div>
       </a>
 
-      <a href="#" class="project" target="blank">
+      <a href="#" class="project" target="blank" data-filter="Mobile">
+        <img src="" alt="" class="project__img">
+        <div class="project__desc">
+          <h3>
+            
+          </h3>
+          <span>
+
+          </span>
+        </div>
+      </a>
+
+      <a href="#" class="project" target="blank" data-filter="Mobile">
         <img src="" alt="" class="project__img">
         <div class="project__desc">
           <h3>
@@ -412,6 +416,13 @@
       2021 Jae Hee Portfolior 
     </p>
   </section>
+  
+  <!-- Arrow up -->
+  <button class="arrow-up">
+    <i class="fas fa-angle-up"></i>
+  </button>
+
 </body>
+
 </html>
       
