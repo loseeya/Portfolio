@@ -541,6 +541,7 @@ p {
 
   .navbar__toggle-btn {
     display: block;
+    right: 20px;
   }
 
   #navbar {
